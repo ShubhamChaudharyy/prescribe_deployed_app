@@ -10,7 +10,9 @@
     font-family: 'Montserrat', sans-serif;;
 
 }
-
+.pat-btn{
+    transform: translateY(40px);
+}
 
 .heading-Patient{
     display: flex;
@@ -21,16 +23,31 @@
 }
 label{
     font-size: 20px;
-    margin-right: 10px;
-    transform: translateX(10px);
+    transform: translateY(-10px);
+    
+}
+.pat-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center !important;
+    justify-content: space-around !important;
+    transform: translate(80px,30px);
 }
 .radio-input{
-    transform: translate(10px,10px);
+    
     margin-right: 5px;
+    margin-left: 20px;
+
+    
 
 }
 .form-input{
     font-size: 20px !important;
+    transform: translateY(30px);
+}
+
+.form-pat{
+    transform: translateY(-80px);
 }
 select{
     font-size: 15px !important;
@@ -41,6 +58,8 @@ form{
    font-family: 'Montserrat', sans-serif !important;
  
 }
+
+
 
 .patient{
 margin-top: 40px;

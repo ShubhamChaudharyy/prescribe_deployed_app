@@ -143,111 +143,117 @@ import Center from 'react-center-tag'
     render()
     {
     return (
-        <div className="row patient">
-            <div className="col-lg-6 patient-col">
-    <React.Fragment>
-      <Typography variant="h6" gutterBottom className="heading-Patient">
-        <span className="indiv-P">P</span>atient Details
-      </Typography>
+      <div className="row patient">
+      <div className="col-lg-6 patient-col">
+<React.Fragment>
+<Typography variant="h6" gutterBottom className="heading-Patient">
+  <span className="indiv-P">P</span>atient Details
+</Typography>
 
-      <form onSubmit={this.onSubmit} className="container">
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="firstName"
-            type="text"
-            onKeyPress={event => (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122)}
-            name="Name"
-            label="Name"
-            fullWidth
-            autoComplete="fname"
-            value={this.state.Name}
-            onChange={this.onChangeName}
-          />
-        </Grid>
-       
-        
+<form onSubmit={this.onSubmit} className="container form-pat">
+<Grid container spacing={3}>
+  <Grid item xs={12} sm={6}>
+    <TextField
+      required
+      id="firstName"
+      type="text"
+      onKeyPress={event => (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122)}
+      name="Name"
+      label="Name"
+      fullWidth
+      autoComplete="fname"
+      value={this.state.Name}
+      onChange={this.onChangeName}
+    />
+  </Grid>
+ 
+  <div className="pat-row">
+  
+  <input type="radio" className="radio-input" id="Male" name="gender" value="Male" checked={this.state.sex === "Male"} onChange={this.onChangeSex} required/>
+  <label for="Male" >Male</label><br></br>
+  <input type="radio" className="radio-input" id="female" name="gender" value="Female" checked={this.state.sex === "Female"} onChange={this.onChangeSex} required/>
+  <label for="female" >Female</label><br></br>
+ 
+  </div>
 
 
-        <Grid item xs={12} sm={10}>
-          <TextField
-          label="Phone Number"
-          type="number"
-          required="true"
-          value={this.state.phone}
-          onChange={this.onChangePhone}
-          maxlength="10"
-          onInput = {(e) =>{
-            e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,10)
-        }}
-          fullWidth />
-        </Grid>
-   
-        <input type="radio" className="radio-input" id="Male" name="gender" value="Male" checked={this.state.sex === "Male"} onChange={this.onChangeSex} required/>
-        <label for="Male" >Male</label><br></br>
-        <input type="radio"  className="radio-input" id="female" name="gender" value="Female" checked={this.state.sex === "Female"} onChange={this.onChangeSex} required/>
-        <label for="female" >Female</label><br></br>
-        <input type="radio" className="radio-input"  id="other" name="gender" value={this.state.sex} onChange={this.onChangeSex} required/>
-        <label for="other">Other</label>
-     
-        <Grid item xs={12} sm={6}>
-          <TextField
-          className="form-input"
-            required
-            id=""
-            name=""
-            label="Age"
-            type="number"
+  <Grid item xs={12} sm={10}>
+    <TextField
+    label="Phone Number"
+    type="number"
+    required="true"
+    value={this.state.phone}
+    onChange={this.onChangePhone}
+    minLength="10"
+    maxlength="10"
+    onInput = {(e) =>{
+      e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,10)
+      
+  }}
+    fullWidth />
+    
+  </Grid>
+  
+  
+  <Grid item xs={12} sm={6}>
+    <TextField
+    className="form-input"
+      required
+      id="age-part"
+      name=""
+      label="Age"
+      type="number"
 
-            fullWidth
-            autoComplete=""
-            value={this.state.age}
-            onChange={this.onChangeAge}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-           className="form-input"
-            id="address1"
-            name="address1"
-            label="Address"
-            fullWidth
-            autoComplete="billing address-line1"
-            value={this.state.address}
-            onChange={this.onChangeAddress}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-          className="form-input"
-            type="email"
-            label="Email"
-            fullWidth
-            autoComplete=""
-            value={this.state.email}
-            onChange={this.onChangeEmail}
-          />
-        </Grid>
-        {/* <Grid item xs={12} sm={6}>
-        <select value={this.state.sex} onChange={this.onChangeSex} required >
-        <option value="">None</option>
-        <option value="Male" >{this.state.gender[0]}</option>
-        <option value="Female">{this.state.gender[1]}</option>
-        </select>
-            
-          
-        </Grid> */}
-        <Grid item xs={12} sm={6}>
-      <button type="submit" className="btn btn-primary">Submit</button>
-      </Grid>
-      </Grid>
+      fullWidth
+      autoComplete=""
+      value={this.state.age}
+      onChange={this.onChangeAge}
+    />
+  </Grid>
+  
+  <Grid item xs={12}>
+    <TextField
+     className="form-input"
+      id="address1"
+      name="address1"
+      label="Address"
+      fullWidth
+      autoComplete="billing address-line1"
+      value={this.state.address}
+      onChange={this.onChangeAddress}
+    />
+  </Grid>
+  
+  <Grid item xs={12} sm={6}>
+    <TextField
+    className="form-input"
+      type="email"
+      label="Email"
+      fullWidth
+      autoComplete=""
+      value={this.state.email}
+      onChange={this.onChangeEmail}
+    />
+  </Grid>
+  {/* <Grid item xs={12} sm={6}>
+  <select value={this.state.sex} onChange={this.onChangeSex} required >
+  <option value="">None</option>
+  <option value="Male" >{this.state.gender[0]}</option>
+  <option value="Female">{this.state.gender[1]}</option>
+  </select>
+      
+    
+  </Grid> */}
+  <Grid item xs={12} sm={6}>
+<button type="submit" className="btn btn-primary pat-btn">Submit</button>
+</Grid>
+</Grid>
 
-    </form>
+</form>
 
-    </React.Fragment>
-    </div>
-    </div>
+</React.Fragment>
+</div>
+</div>
   )
  }
 }

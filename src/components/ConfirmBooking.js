@@ -113,9 +113,9 @@ export default class Zoomcall extends Component{
         <button className="back-home btn btn-primary" onClick={this.handleClick}>Back to Home</button>
 
         <div className="seperate-para">
-        Requesting you to follow the live status through whats-app by typing "STATUS"
+        Requesting you to follow the live status through WhatsApp by typing "STATUS"
         Kindly note that the doctor's availability and token order may vary to handle emergency cases.
-        We will alert you once the Doctor is ready
+        We will alert you once the Doctor is ready!
         </div>
         
         </Grid>

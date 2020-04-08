@@ -357,6 +357,22 @@ app.post('/GetDets/:pid/:child',(req,res,next)=>{
                 docName:PatDets.docName,
                 Slot:PatDets.Slot
             })
+            database.ref(`/status/NIZAR/${date}/app_details`).child(req.params.pid).set({
+              adminBooked:true,
+              Zoom_Link:req.body.link,
+              pid:req.params.pid,
+              queue:childno,
+              age:PatDets.age,
+              name:PatDets.name,
+              email:PatDets.email,
+              phone:PatDets.phone,
+              sex:PatDets.sex,
+              address:PatDets.address,
+              DoctorId:PatDets.DoctorId,
+              HospitalName:PatDets.HospitalName,
+              docName:PatDets.docName,
+              Slot:PatDets.Slot
+          })
             console.log('patientdetails')
              res.send({object:PatDets,link:FinalUrl,childno:childno})
         }) 
