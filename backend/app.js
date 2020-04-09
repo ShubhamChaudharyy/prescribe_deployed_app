@@ -341,9 +341,10 @@ app.post('/GetDets/:pid/:child',(req,res,next)=>{
              childno=snap.numChildren();
         
                  
-            database.ref(`/appointment/${date}/${DocId}`).child(req.params.pid).set({
+            
+		 database.ref(`/appointment/${date}/${DocId}`).child(req.params.pid).set({
                 adminBooked:true,
-                Zoom_Link:req.body.link,
+                zoom_link:req.body.link,
                 pid:req.params.pid,
                 queue:childno,
                 age:PatDets.age,
@@ -352,10 +353,27 @@ app.post('/GetDets/:pid/:child',(req,res,next)=>{
                 phone:PatDets.phone,
                 sex:PatDets.sex,
                 address:PatDets.address,
-                DoctorId:PatDets.DoctorId,
-                HospitalName:PatDets.HospitalName,
+                doctorId:PatDets.DoctorId,
+                hosp_id:PatDets.HospitalName,
                 docName:PatDets.docName,
-                Slot:PatDets.Slot
+                slot:PatDets.Slot
+            })
+            //changes------------------------------------------------------------------
+            database.ref(`/status/NIZAR/${date}/app_details`).child(req.params.pid).set({
+                adminBooked:true,
+                zoom_link:req.body.link,
+                pid:req.params.pid,
+                queue:childno,
+                age:PatDets.age,
+                name:PatDets.name,
+                email:PatDets.email,
+                phone:PatDets.phone,
+                sex:PatDets.sex,
+                address:PatDets.address,
+                doctorId:PatDets.DoctorId,
+                hosp_id:PatDets.HospitalName,
+                docName:PatDets.docName,
+                slot:PatDets.Slot
             })
             console.log('patientdetails')
              res.send({object:PatDets,link:FinalUrl,childno:childno})
